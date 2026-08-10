@@ -13,7 +13,7 @@
           "num": "1.",
           "title": "Shopping Calculator",
           "icon": "🛒",
-          "desc": "TEST EDIT - if you see this, live updates work!",
+          "desc": "A simple program to calculate total, discount and final price.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
           "steps": [
