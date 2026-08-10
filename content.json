@@ -1,0 +1,53 @@
+{
+  "languages": [
+    {
+      "id": "c",
+      "name": "C",
+      "icon": "icons/c.svg",
+      "shape": "hex",
+      "sub": "Programs • Projects • Notes",
+      "dashboardTitle": "C PORTFOLIO",
+      "projects": [
+        {
+          "id": "shopping_calculator",
+          "num": "1.",
+          "title": "Shopping Calculator",
+          "icon": "🛒",
+          "desc": "A simple program to calculate total, discount and final price.",
+          "difficulty": "Beginner",
+          "diffColor": "#8DF749",
+          "steps": [
+            { "prompt": "Enter item name : ", "key": "item", "type": "text" },
+            { "prompt": "Enter price : ", "key": "price", "type": "number" },
+            { "prompt": "Enter quantity : ", "key": "quantity", "type": "number" },
+            { "prompt": "Enter discount (%) : ", "key": "discount", "type": "number" }
+          ],
+          "code": "#include <stdio.h>\n\nint main() {\n    char item[50];\n    float price, total, discount;\n    int qty;\n\n    printf(\"Enter item name : \");\n    scanf(\"%[^\\n]\", item);\n\n    printf(\"Enter price : \");\n    scanf(\"%f\", &price);\n\n    printf(\"Enter quantity : \");\n    scanf(\"%d\", &qty);\n\n    printf(\"Enter discount (%%) : \");\n    scanf(\"%f\", &discount);\n}"
+        }
+      ],
+      "chapters": [
+        { "id": "ch1", "title": "Chapter 1: Basics", "desc": "Fundamental building blocks of C programming." }
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "icon": "icons/python.svg",
+      "shape": "plain",
+      "sub": "Programs • Projects • Notes",
+      "dashboardTitle": "PYTHON PORTFOLIO",
+      "projects": [],
+      "chapters": []
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "icon": "icons/java.svg",
+      "shape": "plain",
+      "sub": "Programs • Projects • Notes",
+      "dashboardTitle": "JAVA PORTFOLIO",
+      "projects": [],
+      "chapters": []
+    }
+  ]
+}
