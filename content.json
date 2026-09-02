@@ -48,6 +48,12 @@
           "desc": "Fundamental building blocks of C programming.",
           "notes": "<p>In this chapter, we learn the fundamental building blocks of C programming.</p><h3>Topics Covered</h3><ul><li>Structure of a C program</li><li>Variables and Data Types</li><li>Input and Output (printf, scanf)</li><li>Comments</li></ul>",
           "codeExample": "#include <stdio.h>\n\nint main() {\n    // This is a simple Hello World\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
+        },
+        {
+          "title": "Chapter 1: Getting Started with C",
+          "desc": "Learn the basics of C programming.",
+          "notes": "<h3>Welcome to C</h3><p>C is a powerful, efficient language.</p><ul><li>Structured programming</li><li>Low-level memory access</li><li>Portable</li></ul>",
+          "codeExample": "#include <stdio.h>\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
         }
       ]
     },
