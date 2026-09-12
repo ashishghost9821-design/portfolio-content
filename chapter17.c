@@ -13,6 +13,5 @@ int main() {
         printf("%d ", scores[i]);
     }
 
-
     return 0;
 }
