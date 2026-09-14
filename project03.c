@@ -4,7 +4,6 @@
 /*
  * ╔══════════════════════════════════════════════╗
  *        C PROGRAMMING - SPHERE CALCULATOR
- *           Bro Code Tutorial | My Notes
  * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
