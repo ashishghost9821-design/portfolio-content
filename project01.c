@@ -4,7 +4,6 @@
 /*
  * ╔══════════════════════════════════════════════╗
  *        C PROGRAMMING - SHOPPING CART PROGRAM
- *           Bro Code Tutorial | My Notes
  * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
