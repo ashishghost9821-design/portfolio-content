@@ -4,7 +4,6 @@
 /*
  * ╔══════════════════════════════════════════════╗
  *     C PROGRAMMING - COMPOUND INTEREST CALCULATOR
- *           Bro Code Tutorial | My Notes
  * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
