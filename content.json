@@ -5,151 +5,352 @@
       "name": "C",
       "icon": "icons/c.svg",
       "shape": "hex",
-      "sub": "Programs • Projects • Notes",
+      "sub": "Programs \u2022 Projects \u2022 Notes",
       "dashboardTitle": "C PORTFOLIO",
       "projects": [
         {
           "id": "project01",
           "num": "1.",
           "title": "SHOPPING CART PROGRAM",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating shopping cart program.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <string.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *        C PROGRAMMING - SHOPPING CART PROGRAM\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> fgets for string input\n *   -> scanf for int and float input\n *   -> arithmetic (price * quantity)\n *   -> mixed format specifiers in printf\n */\n\nint main() {\n\n    char  item[50] = \"\";\n    float price    = 0.0f;\n    int   quantity = 0;\n    char  currency = '$';\n    float total    = 0.0f;\n\n    printf(\"What item would you like to buy?: \");\n    fgets(item, sizeof(item), stdin);\n    item[strlen(item) - 1] = '\\0'; // remove trailing newline\n\n    printf(\"What is the price for each?: \");\n    scanf(\"%f\", &price);\n\n    printf(\"How many would you like?: \");\n    scanf(\"%d\", &quantity);\n\n    total = price * quantity; // calculate total cost\n\n    printf(\"\\nYou have bought %d %s\\n\", quantity, item);\n    printf(\"Total: %c%.2f\\n\", currency, total);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "What item would you like to buy?: ",
+              "key": "item",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "What is the price for each?: ",
+              "key": "price",
+              "inputType": "number"
+            },
+            {
+              "type": "input",
+              "prompt": "How many would you like?: ",
+              "key": "quantity",
+              "inputType": "number"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <string.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *        C PROGRAMMING - SHOPPING CART PROGRAM\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> fgets for string input\n *   -> scanf for int and float input\n *   -> arithmetic (price * quantity)\n *   -> mixed format specifiers in printf\n */\n\nint main() {\n\n    char  item[50] = \"\";\n    float price    = 0.0f;\n    int   quantity = 0;\n    char  currency = '$';\n    float total    = 0.0f;\n\n    printf(\"What item would you like to buy?: \");\n    fgets(item, sizeof(item), stdin);\n    item[strlen(item) - 1] = '\\0'; // remove trailing newline\n\n    printf(\"What is the price for each?: \");\n    scanf(\"%f\", &price);\n\n    printf(\"How many would you like?: \");\n    scanf(\"%d\", &quantity);\n\n    total = price * quantity; // calculate total cost\n\n    printf(\"\\nYou have bought %d %s\\n\", quantity, item);\n    printf(\"Total: %c%.2f\\n\", currency, total);\n\n    return 0;\n}\n",
+          "compute": "const total = inputs.price * inputs.quantity;\nreturn `\nYou have bought ${inputs.quantity} ${inputs.item}\nTotal: $${total.toFixed(2)}`;"
         },
         {
           "id": "project02",
           "num": "2.",
           "title": "MAD LIBS GAME",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating mad libs game.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <string.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *           C PROGRAMMING - MAD LIBS GAME\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> multiple fgets calls for string input\n *   -> strlen to strip trailing newline from each input\n *   -> storing multiple strings in separate char arrays\n *   -> combining strings in a printf story at the end\n */\n\nint main() {\n\n    char noun[50]       = \"\";\n    char verb[50]       = \"\";\n    char adjective1[50] = \"\";\n    char adjective2[50] = \"\";\n    char adjective3[50] = \"\";\n\n    // collect all inputs first, then build the story\n    printf(\"Enter an adjective (description): \");\n    fgets(adjective1, sizeof(adjective1), stdin);\n    adjective1[strlen(adjective1) - 1] = '\\0';\n\n    printf(\"Enter a noun (animal or person): \");\n    fgets(noun, sizeof(noun), stdin);\n    noun[strlen(noun) - 1] = '\\0';\n\n    printf(\"Enter an adjective (description): \");\n    fgets(adjective2, sizeof(adjective2), stdin);\n    adjective2[strlen(adjective2) - 1] = '\\0';\n\n    printf(\"Enter a verb (ending with -ing): \");\n    fgets(verb, sizeof(verb), stdin);\n    verb[strlen(verb) - 1] = '\\0';\n\n    printf(\"Enter an adjective (description): \");\n    fgets(adjective3, sizeof(adjective3), stdin);\n    adjective3[strlen(adjective3) - 1] = '\\0';\n\n    // build the mad libs story using all collected inputs\n    printf(\"\\nThe %s %s was %s %s in the %s forest.\\n\",\n            adjective1, noun, adjective2, verb, adjective3);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "Enter an adjective (description): ",
+              "key": "adjective1",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter a noun (animal or person): ",
+              "key": "noun",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter an adjective (description): ",
+              "key": "adjective2",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter a verb (ending with -ing): ",
+              "key": "verb",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter an adjective (description): ",
+              "key": "adjective3",
+              "inputType": "text"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <string.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *           C PROGRAMMING - MAD LIBS GAME\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> multiple fgets calls for string input\n *   -> strlen to strip trailing newline from each input\n *   -> storing multiple strings in separate char arrays\n *   -> combining strings in a printf story at the end\n */\n\nint main() {\n\n    char noun[50]       = \"\";\n    char verb[50]       = \"\";\n    char adjective1[50] = \"\";\n    char adjective2[50] = \"\";\n    char adjective3[50] = \"\";\n\n    // collect all inputs first, then build the story\n    printf(\"Enter an adjective (description): \");\n    fgets(adjective1, sizeof(adjective1), stdin);\n    adjective1[strlen(adjective1) - 1] = '\\0';\n\n    printf(\"Enter a noun (animal or person): \");\n    fgets(noun, sizeof(noun), stdin);\n    noun[strlen(noun) - 1] = '\\0';\n\n    printf(\"Enter an adjective (description): \");\n    fgets(adjective2, sizeof(adjective2), stdin);\n    adjective2[strlen(adjective2) - 1] = '\\0';\n\n    printf(\"Enter a verb (ending with -ing): \");\n    fgets(verb, sizeof(verb), stdin);\n    verb[strlen(verb) - 1] = '\\0';\n\n    printf(\"Enter an adjective (description): \");\n    fgets(adjective3, sizeof(adjective3), stdin);\n    adjective3[strlen(adjective3) - 1] = '\\0';\n\n    // build the mad libs story using all collected inputs\n    printf(\"\\nThe %s %s was %s %s in the %s forest.\\n\",\n            adjective1, noun, adjective2, verb, adjective3);\n\n    return 0;\n}\n",
+          "compute": "return `\nThe ${inputs.adjective1} ${inputs.noun} was ${inputs.adjective2} ${inputs.verb} in the ${inputs.adjective3} forest.`;"
         },
         {
           "id": "project03",
           "num": "3.",
           "title": "SPHERE CALCULATOR",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating sphere calculator.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <math.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *        C PROGRAMMING - SPHERE CALCULATOR\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> const keyword (value that cannot change)\n *   -> pow() from <math.h> (compile with -lm)\n *   -> double for high precision decimals\n *   -> multiple formulas using same variable\n *\n * FORMULAS:\n *   Area         = PI * r^2\n *   Surface Area = 4 * PI * r^2\n *   Volume       = (4/3) * PI * r^3\n *\n * NOTE: use 4.0/3.0 NOT 4/3\n *       4/3 in C = 1 (integer division truncates decimal)\n *       4.0/3.0  = 1.333... (correct float division)\n */\n\nint main() {\n\n    // const = value that cannot be changed after declaration\n    const double PI = 3.14159;\n\n    double radius      = 0.0;\n    double area        = 0.0;\n    double surfaceArea = 0.0;\n    double volume      = 0.0;\n\n    printf(\"Enter the radius: \");\n    scanf(\"%lf\", &radius);\n\n    area        = PI * pow(radius, 2);           // PI * r^2\n    surfaceArea = 4 * PI * pow(radius, 2);       // 4 * PI * r^2\n    volume      = (4.0/3.0) * PI * pow(radius, 3); // (4/3) * PI * r^3\n    // pow(radius, 2) same as radius * radius\n    // pow(radius, 3) same as radius * radius * radius\n\n    printf(\"Area:         %.2lf\\n\", area);\n    printf(\"Surface Area: %.2lf\\n\", surfaceArea);\n    printf(\"Volume:       %.2lf\\n\", volume);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "Enter the radius: ",
+              "key": "radius",
+              "inputType": "number"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <math.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *        C PROGRAMMING - SPHERE CALCULATOR\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> const keyword (value that cannot change)\n *   -> pow() from <math.h> (compile with -lm)\n *   -> double for high precision decimals\n *   -> multiple formulas using same variable\n *\n * FORMULAS:\n *   Area         = PI * r^2\n *   Surface Area = 4 * PI * r^2\n *   Volume       = (4/3) * PI * r^3\n *\n * NOTE: use 4.0/3.0 NOT 4/3\n *       4/3 in C = 1 (integer division truncates decimal)\n *       4.0/3.0  = 1.333... (correct float division)\n */\n\nint main() {\n\n    // const = value that cannot be changed after declaration\n    const double PI = 3.14159;\n\n    double radius      = 0.0;\n    double area        = 0.0;\n    double surfaceArea = 0.0;\n    double volume      = 0.0;\n\n    printf(\"Enter the radius: \");\n    scanf(\"%lf\", &radius);\n\n    area        = PI * pow(radius, 2);           // PI * r^2\n    surfaceArea = 4 * PI * pow(radius, 2);       // 4 * PI * r^2\n    volume      = (4.0/3.0) * PI * pow(radius, 3); // (4/3) * PI * r^3\n    // pow(radius, 2) same as radius * radius\n    // pow(radius, 3) same as radius * radius * radius\n\n    printf(\"Area:         %.2lf\\n\", area);\n    printf(\"Surface Area: %.2lf\\n\", surfaceArea);\n    printf(\"Volume:       %.2lf\\n\", volume);\n\n    return 0;\n}\n",
+          "compute": "const PI = 3.14159;\nconst area = PI * Math.pow(inputs.radius, 2);\nconst surfaceArea = 4 * PI * Math.pow(inputs.radius, 2);\nconst volume = (4.0 / 3.0) * PI * Math.pow(inputs.radius, 3);\nreturn `Area:         ${area.toFixed(2)}\nSurface Area: ${surfaceArea.toFixed(2)}\nVolume:       ${volume.toFixed(2)}`;"
         },
         {
           "id": "project04",
           "num": "4.",
           "title": "COMPOUND INTEREST CALCULATOR",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating compound interest calculator.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <math.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *     C PROGRAMMING - COMPOUND INTEREST CALCULATOR\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> pow() from <math.h> (compile with -lm)\n *   -> %% to print a literal % in printf\n *   -> converting percentage to decimal (/ 100)\n *   -> mixed int and double variables\n *\n * FORMULA: A = P * (1 + r/n)^(n*t)\n *   P = principal  (starting amount)\n *   r = rate       (annual interest as decimal)\n *   n = compounded (times per year)\n *   t = time       (years)\n *   A = total      (final amount)\n */\n\nint main() {\n\n    double principal       = 0.0; // starting amount\n    double rate            = 0.0; // interest rate (converted to decimal)\n    int    years           = 0;   // time in years\n    int    timesCompounded = 0;   // how many times per year\n    double total           = 0.0; // final result\n\n    printf(\"--- Compound Interest Calculator ---\\n\");\n\n    printf(\"Enter the principal (P): \");\n    scanf(\"%lf\", &principal);\n\n    printf(\"Enter the interest rate %% (r): \"); // %% prints literal %\n    scanf(\"%lf\", &rate);\n    rate = rate / 100; // convert % to decimal e.g. 5 -> 0.05\n\n    printf(\"Enter the # of years (t): \");\n    scanf(\"%d\", &years);\n\n    printf(\"Enter # of times compounded per year (n): \");\n    scanf(\"%d\", &timesCompounded);\n\n    // apply compound interest formula using pow() from <math.h>\n    total = principal * pow(1 + rate / timesCompounded, timesCompounded * years);\n\n    printf(\"After %d years, the total will be: $%.2f\\n\", years, total);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "Enter the principal (P): ",
+              "key": "principal",
+              "inputType": "number"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter the interest rate % (r): ",
+              "key": "rate",
+              "inputType": "number"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter the # of years (t): ",
+              "key": "years",
+              "inputType": "number"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter # of times compounded per year (n): ",
+              "key": "timesCompounded",
+              "inputType": "number"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <math.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *     C PROGRAMMING - COMPOUND INTEREST CALCULATOR\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> pow() from <math.h> (compile with -lm)\n *   -> %% to print a literal % in printf\n *   -> converting percentage to decimal (/ 100)\n *   -> mixed int and double variables\n *\n * FORMULA: A = P * (1 + r/n)^(n*t)\n *   P = principal  (starting amount)\n *   r = rate       (annual interest as decimal)\n *   n = compounded (times per year)\n *   t = time       (years)\n *   A = total      (final amount)\n */\n\nint main() {\n\n    double principal       = 0.0; // starting amount\n    double rate            = 0.0; // interest rate (converted to decimal)\n    int    years           = 0;   // time in years\n    int    timesCompounded = 0;   // how many times per year\n    double total           = 0.0; // final result\n\n    printf(\"--- Compound Interest Calculator ---\\n\");\n\n    printf(\"Enter the principal (P): \");\n    scanf(\"%lf\", &principal);\n\n    printf(\"Enter the interest rate %% (r): \"); // %% prints literal %\n    scanf(\"%lf\", &rate);\n    rate = rate / 100; // convert % to decimal e.g. 5 -> 0.05\n\n    printf(\"Enter the # of years (t): \");\n    scanf(\"%d\", &years);\n\n    printf(\"Enter # of times compounded per year (n): \");\n    scanf(\"%d\", &timesCompounded);\n\n    // apply compound interest formula using pow() from <math.h>\n    total = principal * pow(1 + rate / timesCompounded, timesCompounded * years);\n\n    printf(\"After %d years, the total will be: $%.2f\\n\", years, total);\n\n    return 0;\n}\n",
+          "compute": "const rate = inputs.rate / 100;\nconst total = inputs.principal * Math.pow(1 + rate / inputs.timesCompounded, inputs.timesCompounded * inputs.years);\nreturn `After ${inputs.years} years, the total will be: $${total.toFixed(2)}`;"
         },
         {
           "id": "project05",
           "num": "5.",
           "title": "WEIGHT CONVERTER PROGRAM",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating weight converter program.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *      C PROGRAMMING - WEIGHT CONVERTER PROGRAM\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> if/else if/else for menu selection\n *   -> float arithmetic with conversion factor\n *   -> scanf for int (menu) and float (weight)\n *\n * FORMULAS:\n *   kg to lbs -> pounds     = kilograms * 2.20462\n *   lbs to kg -> kilograms  = pounds    / 2.20462\n */\n\nint main() {\n\n    int   choice     = 0;\n    float pounds     = 0.0f;\n    float kilograms  = 0.0f;\n\n    printf(\"--- Weight Conversion Calculator ---\\n\");\n    printf(\"1. Kilograms to Pounds\\n\");\n    printf(\"2. Pounds to Kilograms\\n\");\n    printf(\"Enter your choice (1 or 2): \");\n    scanf(\"%d\", &choice);\n\n    if(choice == 1) {\n        // kilograms -> pounds\n        printf(\"Enter the weight in Kilograms: \");\n        scanf(\"%f\", &kilograms);\n        pounds = kilograms * 2.20462; // conversion factor\n        printf(\"%.2f kg is equal to %.2f lbs\\n\", kilograms, pounds);\n    }\n    else if(choice == 2) {\n        // pounds -> kilograms\n        printf(\"Enter the weight in Pounds: \");\n        scanf(\"%f\", &pounds);\n        kilograms = pounds / 2.20462; // reverse conversion\n        printf(\"%.2f lbs is equal to %.2f kg\\n\", pounds, kilograms);\n    }\n    else {\n        printf(\"Invalid choice! Please enter 1 or 2\\n\");\n    }\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "1. Kilograms to Pounds\n2. Pounds to Kilograms\nEnter your choice (1 or 2): ",
+              "key": "choice",
+              "inputType": "number"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter the weight to convert: ",
+              "key": "weight",
+              "inputType": "number"
+            }
+          ],
+          "code": "#include <stdio.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *      C PROGRAMMING - WEIGHT CONVERTER PROGRAM\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> if/else if/else for menu selection\n *   -> float arithmetic with conversion factor\n *   -> scanf for int (menu) and float (weight)\n *\n * FORMULAS:\n *   kg to lbs -> pounds     = kilograms * 2.20462\n *   lbs to kg -> kilograms  = pounds    / 2.20462\n */\n\nint main() {\n\n    int   choice     = 0;\n    float pounds     = 0.0f;\n    float kilograms  = 0.0f;\n\n    printf(\"--- Weight Conversion Calculator ---\\n\");\n    printf(\"1. Kilograms to Pounds\\n\");\n    printf(\"2. Pounds to Kilograms\\n\");\n    printf(\"Enter your choice (1 or 2): \");\n    scanf(\"%d\", &choice);\n\n    if(choice == 1) {\n        // kilograms -> pounds\n        printf(\"Enter the weight in Kilograms: \");\n        scanf(\"%f\", &kilograms);\n        pounds = kilograms * 2.20462; // conversion factor\n        printf(\"%.2f kg is equal to %.2f lbs\\n\", kilograms, pounds);\n    }\n    else if(choice == 2) {\n        // pounds -> kilograms\n        printf(\"Enter the weight in Pounds: \");\n        scanf(\"%f\", &pounds);\n        kilograms = pounds / 2.20462; // reverse conversion\n        printf(\"%.2f lbs is equal to %.2f kg\\n\", pounds, kilograms);\n    }\n    else {\n        printf(\"Invalid choice! Please enter 1 or 2\\n\");\n    }\n\n    return 0;\n}\n",
+          "compute": "if (inputs.choice === 1) {\n  const pounds = inputs.weight * 2.20462;\n  return `${inputs.weight.toFixed(2)} kg is equal to ${pounds.toFixed(2)} lbs`;\n} else if (inputs.choice === 2) {\n  const kilograms = inputs.weight / 2.20462;\n  return `${inputs.weight.toFixed(2)} lbs is equal to ${kilograms.toFixed(2)} kg`;\n} else {\n  return `Invalid choice! Please enter 1 or 2`;\n}"
         },
         {
           "id": "project06",
           "num": "6.",
           "title": "TEMPERATURE CONVERTER PROGRAM",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating temperature converter program.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *    C PROGRAMMING - TEMPERATURE CONVERTER PROGRAM\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> char input with scanf(\"%c\")\n *   -> if/else if/else with char comparison\n *   -> float arithmetic with conversion formula\n *\n * FORMULAS:\n *   C to F -> fahrenheit = (celsius * 9/5) + 32\n *   F to C -> celsius    = (fahrenheit - 32) * 5/9\n *\n * NOTE: use 9/5 carefully — in C, integer division\n *   9/5 = 1 (truncated), BUT since celsius is float\n *   the compiler promotes it to float automatically.\n *   To be safe you can write 9.0/5.0 explicitly.\n */\n\nint main() {\n\n    char  choice     = '\\0';\n    float fahrenheit = 0.0f;\n    float celsius    = 0.0f;\n\n    printf(\"--- Temperature Conversion Program ---\\n\");\n    printf(\"C. Celsius to Fahrenheit\\n\");\n    printf(\"F. Fahrenheit to Celsius\\n\");\n    printf(\"Is the temp in Celsius (C) or Fahrenheit (F)?: \");\n    scanf(\" %c\", &choice); // space before %c clears leftover '\\n'\n\n    if(choice == 'C') {\n        // Celsius -> Fahrenheit\n        printf(\"Enter the temperature in Celsius: \");\n        scanf(\"%f\", &celsius);\n        fahrenheit = (celsius * 9/5) + 32;\n        printf(\"%.1f C is equal to %.1f F\\n\", celsius, fahrenheit);\n    }\n    else if(choice == 'F') {\n        // Fahrenheit -> Celsius\n        printf(\"Enter the temperature in Fahrenheit: \");\n        scanf(\"%f\", &fahrenheit);\n        celsius = (fahrenheit - 32) * 5/9;\n        printf(\"%.1f F is equal to %.1f C\\n\", fahrenheit, celsius);\n    }\n    else {\n        printf(\"Invalid choice! Please enter C or F\\n\");\n    }\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "C. Celsius to Fahrenheit\nF. Fahrenheit to Celsius\nIs the temp in Celsius (C) or Fahrenheit (F)?: ",
+              "key": "choice",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter the temperature: ",
+              "key": "temp",
+              "inputType": "number"
+            }
+          ],
+          "code": "#include <stdio.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *    C PROGRAMMING - TEMPERATURE CONVERTER PROGRAM\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> char input with scanf(\"%c\")\n *   -> if/else if/else with char comparison\n *   -> float arithmetic with conversion formula\n *\n * FORMULAS:\n *   C to F -> fahrenheit = (celsius * 9/5) + 32\n *   F to C -> celsius    = (fahrenheit - 32) * 5/9\n *\n * NOTE: use 9/5 carefully \u2014 in C, integer division\n *   9/5 = 1 (truncated), BUT since celsius is float\n *   the compiler promotes it to float automatically.\n *   To be safe you can write 9.0/5.0 explicitly.\n */\n\nint main() {\n\n    char  choice     = '\\0';\n    float fahrenheit = 0.0f;\n    float celsius    = 0.0f;\n\n    printf(\"--- Temperature Conversion Program ---\\n\");\n    printf(\"C. Celsius to Fahrenheit\\n\");\n    printf(\"F. Fahrenheit to Celsius\\n\");\n    printf(\"Is the temp in Celsius (C) or Fahrenheit (F)?: \");\n    scanf(\" %c\", &choice); // space before %c clears leftover '\\n'\n\n    if(choice == 'C') {\n        // Celsius -> Fahrenheit\n        printf(\"Enter the temperature in Celsius: \");\n        scanf(\"%f\", &celsius);\n        fahrenheit = (celsius * 9/5) + 32;\n        printf(\"%.1f C is equal to %.1f F\\n\", celsius, fahrenheit);\n    }\n    else if(choice == 'F') {\n        // Fahrenheit -> Celsius\n        printf(\"Enter the temperature in Fahrenheit: \");\n        scanf(\"%f\", &fahrenheit);\n        celsius = (fahrenheit - 32) * 5/9;\n        printf(\"%.1f F is equal to %.1f C\\n\", fahrenheit, celsius);\n    }\n    else {\n        printf(\"Invalid choice! Please enter C or F\\n\");\n    }\n\n    return 0;\n}\n",
+          "compute": "const c = (inputs.choice || \"\").trim().toUpperCase();\nif (c === \"C\") {\n  const f = (inputs.temp * 9 / 5) + 32;\n  return `${inputs.temp.toFixed(1)} C is equal to ${f.toFixed(1)} F`;\n} else if (c === \"F\") {\n  const cel = (inputs.temp - 32) * 5 / 9;\n  return `${inputs.temp.toFixed(1)} F is equal to ${cel.toFixed(1)} C`;\n} else {\n  return `Invalid choice! Please enter C or F`;\n}"
         },
         {
           "id": "project07",
           "num": "7.",
           "title": "Project 7",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating project 7.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n\nint main() {\n\n    // CALCULATOR PROGRAM\n\n    char   operator = '\\0';\n    double num1     = 0.0;\n    double num2     = 0.0;\n    double result   = 0.0;\n\n    printf(\"Enter the First number: \");\n    scanf(\"%lf\", &num1);\n\n    printf(\"Enter the operator (+ - * /): \");\n    scanf(\" %c\", &operator); // space before %c clears leftover '\\n'\n\n    printf(\"Enter the Second number: \");\n    scanf(\"%lf\", &num2);\n\n    /* ═══════════════════════════════════════════════\n     * SWITCH STATEMENT\n     * ═══════════════════════════════════════════════\n     * Checks operator character against each case.\n     * break -> stops fall-through to next case.\n     * default -> runs if no case matches.\n     *\n     * WARNING: forgetting break causes fall-through\n     * meaning it runs the next case automatically!\n     */\n\n    switch(operator) {\n        case '+':\n            result = num1 + num2;\n            break;\n        case '-':\n            result = num1 - num2;\n            break;\n        case '*':\n            result = num1 * num2;\n            break;\n        case '/':\n            if(num2 == 0) {\n                printf(\"You can't divide by zero!\\n\");\n            }\n            else {\n                result = num1 / num2;\n            }\n            break; // THIS was missing — caused fall-through to default\n        default:\n            printf(\"Invalid Operator!\\n\");\n    }\n\n    printf(\"Result: %.4lf\\n\", result);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "Enter the First number: ",
+              "key": "num1",
+              "inputType": "number"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter the operator (+ - * /): ",
+              "key": "operator",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "Enter the Second number: ",
+              "key": "num2",
+              "inputType": "number"
+            }
+          ],
+          "code": "#include <stdio.h>\n\nint main() {\n\n    // CALCULATOR PROGRAM\n\n    char   operator = '\\0';\n    double num1     = 0.0;\n    double num2     = 0.0;\n    double result   = 0.0;\n\n    printf(\"Enter the First number: \");\n    scanf(\"%lf\", &num1);\n\n    printf(\"Enter the operator (+ - * /): \");\n    scanf(\" %c\", &operator); // space before %c clears leftover '\\n'\n\n    printf(\"Enter the Second number: \");\n    scanf(\"%lf\", &num2);\n\n    /* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n     * SWITCH STATEMENT\n     * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n     * Checks operator character against each case.\n     * break -> stops fall-through to next case.\n     * default -> runs if no case matches.\n     *\n     * WARNING: forgetting break causes fall-through\n     * meaning it runs the next case automatically!\n     */\n\n    switch(operator) {\n        case '+':\n            result = num1 + num2;\n            break;\n        case '-':\n            result = num1 - num2;\n            break;\n        case '*':\n            result = num1 * num2;\n            break;\n        case '/':\n            if(num2 == 0) {\n                printf(\"You can't divide by zero!\\n\");\n            }\n            else {\n                result = num1 / num2;\n            }\n            break; // THIS was missing \u2014 caused fall-through to default\n        default:\n            printf(\"Invalid Operator!\\n\");\n    }\n\n    printf(\"Result: %.4lf\\n\", result);\n\n    return 0;\n}\n",
+          "compute": "let result = 0;\nlet extra = \"\";\nswitch ((inputs.operator || \"\").trim()) {\n  case '+': result = inputs.num1 + inputs.num2; break;\n  case '-': result = inputs.num1 - inputs.num2; break;\n  case '*': result = inputs.num1 * inputs.num2; break;\n  case '/':\n    if (inputs.num2 === 0) { extra = `You can't divide by zero!\n`; }\n    else { result = inputs.num1 / inputs.num2; }\n    break;\n  default:\n    extra = `Invalid Operator!\n`;\n}\nreturn `${extra}Result: ${result.toFixed(4)}`;"
         },
         {
           "id": "project08",
           "num": "8.",
           "title": "RANDOM NUMBERS",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating random numbers.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *         C PROGRAMMING - RANDOM NUMBERS\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n */\n\n/* ═══════════════════════════════════════════════\n * RANDOM NUMBER FUNCTIONS\n * ═══════════════════════════════════════════════\n * #include <stdlib.h> -> for rand() and srand()\n * #include <time.h>   -> for time()\n *\n * srand(time(NULL)) -> seeds the random number\n *                      generator with current time\n *                      so you get different numbers\n *                      each run. Call ONCE at start.\n *\n * rand()    -> generates a random int from 0 to RAND_MAX\n * RAND_MAX  -> maximum value rand() can return (32767+)\n *\n * FORMULA to get random number in a range:\n *   (rand() % max) + min\n *   -> % max  gives 0 to max-1\n *   -> + min  shifts range up\n *\n * FORMULA for exact min to max inclusive:\n *   (rand() % (max - min + 1)) + min\n */\n\nint main() {\n\n    srand(time(NULL)); // seed once at start\n\n    printf(\"%d\\n\", rand());     // random number 0 to RAND_MAX\n    printf(\"%d\\n\", RAND_MAX);   // max possible value of rand()\n\n    // --- range 1 to 6 (like a dice) ---\n    int min = 1;\n    int max = 6;\n    int randomNUM = (rand() % max) + min;\n    printf(\"Dice roll: %d\\n\", randomNUM);\n\n    // --- range 50 to 100 ---\n    int Min = 50;\n    int Max = 100;\n\n    // formula: (rand() % (Max - Min + 1)) + Min\n    // Max - Min + 1 = 51 possible values (50,51,...,100)\n    int randomNum1 = (rand() % (Max - Min + 1)) + Min;\n    int randomNum2 = (rand() % (Max - Min + 1)) + Min;\n    int randomNum3 = (rand() % (Max - Min + 1)) + Min;\n\n    printf(\"%d\\n%d\\n%d\\n\", randomNum1, randomNum2, randomNum3);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "Type anything and press Enter to generate random numbers: ",
+              "key": "_start",
+              "inputType": "text"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *         C PROGRAMMING - RANDOM NUMBERS\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n */\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * RANDOM NUMBER FUNCTIONS\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * #include <stdlib.h> -> for rand() and srand()\n * #include <time.h>   -> for time()\n *\n * srand(time(NULL)) -> seeds the random number\n *                      generator with current time\n *                      so you get different numbers\n *                      each run. Call ONCE at start.\n *\n * rand()    -> generates a random int from 0 to RAND_MAX\n * RAND_MAX  -> maximum value rand() can return (32767+)\n *\n * FORMULA to get random number in a range:\n *   (rand() % max) + min\n *   -> % max  gives 0 to max-1\n *   -> + min  shifts range up\n *\n * FORMULA for exact min to max inclusive:\n *   (rand() % (max - min + 1)) + min\n */\n\nint main() {\n\n    srand(time(NULL)); // seed once at start\n\n    printf(\"%d\\n\", rand());     // random number 0 to RAND_MAX\n    printf(\"%d\\n\", RAND_MAX);   // max possible value of rand()\n\n    // --- range 1 to 6 (like a dice) ---\n    int min = 1;\n    int max = 6;\n    int randomNUM = (rand() % max) + min;\n    printf(\"Dice roll: %d\\n\", randomNUM);\n\n    // --- range 50 to 100 ---\n    int Min = 50;\n    int Max = 100;\n\n    // formula: (rand() % (Max - Min + 1)) + Min\n    // Max - Min + 1 = 51 possible values (50,51,...,100)\n    int randomNum1 = (rand() % (Max - Min + 1)) + Min;\n    int randomNum2 = (rand() % (Max - Min + 1)) + Min;\n    int randomNum3 = (rand() % (Max - Min + 1)) + Min;\n\n    printf(\"%d\\n%d\\n%d\\n\", randomNum1, randomNum2, randomNum3);\n\n    return 0;\n}\n",
+          "compute": "const RAND_MAX = 2147483647;\nconst raw = Math.floor(Math.random() * (RAND_MAX + 1));\nconst dice = Math.floor(Math.random() * 6) + 1;\nconst r1 = Math.floor(Math.random() * 51) + 50;\nconst r2 = Math.floor(Math.random() * 51) + 50;\nconst r3 = Math.floor(Math.random() * 51) + 50;\nreturn `${raw}\n${RAND_MAX}\nDice roll: ${dice}\n${r1}\n${r2}\n${r3}`;"
         },
         {
           "id": "project09",
           "num": "9.",
           "title": "NUMBER GUESSING GAME",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating number guessing game.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *        C PROGRAMMING - NUMBER GUESSING GAME\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n */\n\n/* ═══════════════════════════════════════════════\n * WHY fgets + sscanf INSTEAD OF JUST scanf?\n * ═══════════════════════════════════════════════\n * scanf(\"%d\") skips whitespace including '\\n'\n * so pressing Enter with nothing typed makes\n * it wait forever — program gets stuck.\n *\n * Fix: fgets reads the WHOLE line including '\\n'\n *      sscanf then tries to parse an integer from it\n *      if line is empty or invalid, sscanf returns 0\n *      and we handle the error cleanly.\n *\n * sscanf(buffer, \"%d\", &guess)\n *   -> same as scanf but reads from a string\n *      instead of keyboard directly\n */\n\nint main() {\n\n    srand(time(NULL)); // seed random number generator\n\n    int  guess  = 0;\n    int  tries  = 0;\n    int  min    = 1;\n    int  max    = 100;\n    int  answer = (rand() % (max - min + 1)) + min;\n    char buffer[50]; // stores raw input line from fgets\n\n    printf(\"*** NUMBER GUESSING GAME ***\\n\");\n\n    do {\n        printf(\"Guess a number between %d - %d: \", min, max);\n\n        // fgets reads full line — never gets stuck on empty Enter\n        if(fgets(buffer, sizeof(buffer), stdin) == NULL) {\n            continue; // skip if input fails\n        }\n\n        // sscanf parses integer from the line fgets read\n        // returns 1 if successful, 0 if invalid/empty\n        if(sscanf(buffer, \"%d\", &guess) != 1) {\n            printf(\"Invalid input! Please enter a number.\\n\");\n            continue; // go back to top of loop\n        }\n\n        // range check: keep guess within min-max\n        if(guess < min || guess > max) {\n            printf(\"Please stay in range (%d - %d)\\n\", min, max);\n            continue;\n        }\n\n        tries++;\n\n        if(guess < answer) {\n            printf(\"Too low!\\n\");\n        }\n        else if(guess > answer) {\n            printf(\"Too high!\\n\");\n        }\n        else {\n            printf(\"!! CORRECT !!\\n\");\n        }\n\n    } while(guess != answer);\n\n    printf(\"The answer was: %d\\n\", answer);\n    printf(\"It took you %d tries\\n\", tries);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "loopWhile",
+              "prompt": "Guess a number between 1 - 100: ",
+              "inputType": "number",
+              "key": "guesses",
+              "feedback": "if (!inputs.secret) inputs.secret = Math.floor(Math.random() * 100) + 1;\nif (value === inputs.secret) return {message: '!! CORRECT !!\\nThe answer was ' + inputs.secret, stop: true};\nreturn {message: value < inputs.secret ? 'Too low!' : 'Too high!'};"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *        C PROGRAMMING - NUMBER GUESSING GAME\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n */\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * WHY fgets + sscanf INSTEAD OF JUST scanf?\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * scanf(\"%d\") skips whitespace including '\\n'\n * so pressing Enter with nothing typed makes\n * it wait forever \u2014 program gets stuck.\n *\n * Fix: fgets reads the WHOLE line including '\\n'\n *      sscanf then tries to parse an integer from it\n *      if line is empty or invalid, sscanf returns 0\n *      and we handle the error cleanly.\n *\n * sscanf(buffer, \"%d\", &guess)\n *   -> same as scanf but reads from a string\n *      instead of keyboard directly\n */\n\nint main() {\n\n    srand(time(NULL)); // seed random number generator\n\n    int  guess  = 0;\n    int  tries  = 0;\n    int  min    = 1;\n    int  max    = 100;\n    int  answer = (rand() % (max - min + 1)) + min;\n    char buffer[50]; // stores raw input line from fgets\n\n    printf(\"*** NUMBER GUESSING GAME ***\\n\");\n\n    do {\n        printf(\"Guess a number between %d - %d: \", min, max);\n\n        // fgets reads full line \u2014 never gets stuck on empty Enter\n        if(fgets(buffer, sizeof(buffer), stdin) == NULL) {\n            continue; // skip if input fails\n        }\n\n        // sscanf parses integer from the line fgets read\n        // returns 1 if successful, 0 if invalid/empty\n        if(sscanf(buffer, \"%d\", &guess) != 1) {\n            printf(\"Invalid input! Please enter a number.\\n\");\n            continue; // go back to top of loop\n        }\n\n        // range check: keep guess within min-max\n        if(guess < min || guess > max) {\n            printf(\"Please stay in range (%d - %d)\\n\", min, max);\n            continue;\n        }\n\n        tries++;\n\n        if(guess < answer) {\n            printf(\"Too low!\\n\");\n        }\n        else if(guess > answer) {\n            printf(\"Too high!\\n\");\n        }\n        else {\n            printf(\"!! CORRECT !!\\n\");\n        }\n\n    } while(guess != answer);\n\n    printf(\"The answer was: %d\\n\", answer);\n    printf(\"It took you %d tries\\n\", tries);\n\n    return 0;\n}\n",
+          "compute": "return `It took you ${inputs.guesses.length} tries`;"
         },
         {
           "id": "project10",
           "num": "10.",
           "title": "ROCK PAPER SCISSORS",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating rock paper scissors.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *       C PROGRAMMING - ROCK PAPER SCISSORS\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n */\n\n/* ═══════════════════════════════════════════════\n * FUNCTION PROTOTYPES\n * ═══════════════════════════════════════════════\n * Declared above main() so compiler knows\n * they exist before they are called.\n */\n\nint  getComputerChoice();                        // returns 1, 2, or 3 randomly\nint  getUserChoice();                            // returns user's menu choice\nvoid checkWinner(int userChoice, int computerChoice); // prints result, returns nothing\n\n/* ═══════════════════════════════════════════════\n * MAIN\n * ═══════════════════════════════════════════════ */\n\nint main() {\n\n    srand(time(NULL)); // seed random number generator once\n\n    printf(\"*** ROCK PAPER SCISSORS ***\\n\");\n\n    int userChoice     = getUserChoice();\n    int computerChoice = getComputerChoice();\n\n    // print what user chose\n    switch(userChoice) {\n        case 1: printf(\"You chose Rock!\\n\");     break;\n        case 2: printf(\"You chose Paper!\\n\");    break;\n        case 3: printf(\"You chose Scissors!\\n\"); break;\n    }\n\n    // print what computer chose\n    switch(computerChoice) {\n        case 1: printf(\"Computer chose Rock!\\n\");     break;\n        case 2: printf(\"Computer chose Paper!\\n\");    break;\n        case 3: printf(\"Computer chose Scissors!\\n\"); break;\n    }\n\n    checkWinner(userChoice, computerChoice);\n\n    return 0;\n}\n\n/* ═══════════════════════════════════════════════\n * FUNCTION DEFINITIONS\n * ═══════════════════════════════════════════════ */\n\n// returns random int 1-3 (1=Rock, 2=Paper, 3=Scissors)\nint getComputerChoice() {\n    return (rand() % 3) + 1;\n}\n\n// shows menu, reads and returns user's choice\nint getUserChoice() {\n    int choice = 0;\n\n    printf(\"1. Rock\\n\");\n    printf(\"2. Paper\\n\");\n    printf(\"3. Scissors\\n\");\n    printf(\"Choose: \");\n    scanf(\"%d\", &choice);\n\n    return choice;\n}\n\n/* ═══════════════════════════════════════════════\n * checkWinner() — TWO WAYS TO WRITE WIN CONDITION\n * ═══════════════════════════════════════════════\n *\n * WAY 1 (used below): separate if/else for each win\n *   -> easier to read, more explicit\n *\n * WAY 2 (commented out): combine all wins with || (OR)\n *   -> shorter, but harder to read at a glance\n *   -> || means \"or\" — true if ANY condition is true\n *\n *   else if((userChoice == 1 && computerChoice == 3) ||\n *           (userChoice == 2 && computerChoice == 1) ||\n *           (userChoice == 3 && computerChoice == 2)) {\n *       printf(\"You WIN!\\n\");\n *   }\n */\n\nvoid checkWinner(int userChoice, int computerChoice) {\n\n    if(userChoice == computerChoice) {\n        printf(\"It's a TIE!\\n\");\n    }\n    else if(userChoice == 1 && computerChoice == 3) {\n        printf(\"You WIN! Rock beats Scissors\\n\");\n    }\n    else if(userChoice == 2 && computerChoice == 1) {\n        printf(\"You WIN! Paper beats Rock\\n\");\n    }\n    else if(userChoice == 3 && computerChoice == 2) {\n        printf(\"You WIN! Scissors beats Paper\\n\");\n    }\n    else {\n        printf(\"You LOSE!\\n\");\n    }\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "1. Rock\n2. Paper\n3. Scissors\nChoose: ",
+              "key": "userChoice",
+              "inputType": "number"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *       C PROGRAMMING - ROCK PAPER SCISSORS\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n */\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * FUNCTION PROTOTYPES\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * Declared above main() so compiler knows\n * they exist before they are called.\n */\n\nint  getComputerChoice();                        // returns 1, 2, or 3 randomly\nint  getUserChoice();                            // returns user's menu choice\nvoid checkWinner(int userChoice, int computerChoice); // prints result, returns nothing\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * MAIN\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */\n\nint main() {\n\n    srand(time(NULL)); // seed random number generator once\n\n    printf(\"*** ROCK PAPER SCISSORS ***\\n\");\n\n    int userChoice     = getUserChoice();\n    int computerChoice = getComputerChoice();\n\n    // print what user chose\n    switch(userChoice) {\n        case 1: printf(\"You chose Rock!\\n\");     break;\n        case 2: printf(\"You chose Paper!\\n\");    break;\n        case 3: printf(\"You chose Scissors!\\n\"); break;\n    }\n\n    // print what computer chose\n    switch(computerChoice) {\n        case 1: printf(\"Computer chose Rock!\\n\");     break;\n        case 2: printf(\"Computer chose Paper!\\n\");    break;\n        case 3: printf(\"Computer chose Scissors!\\n\"); break;\n    }\n\n    checkWinner(userChoice, computerChoice);\n\n    return 0;\n}\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * FUNCTION DEFINITIONS\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */\n\n// returns random int 1-3 (1=Rock, 2=Paper, 3=Scissors)\nint getComputerChoice() {\n    return (rand() % 3) + 1;\n}\n\n// shows menu, reads and returns user's choice\nint getUserChoice() {\n    int choice = 0;\n\n    printf(\"1. Rock\\n\");\n    printf(\"2. Paper\\n\");\n    printf(\"3. Scissors\\n\");\n    printf(\"Choose: \");\n    scanf(\"%d\", &choice);\n\n    return choice;\n}\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * checkWinner() \u2014 TWO WAYS TO WRITE WIN CONDITION\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n *\n * WAY 1 (used below): separate if/else for each win\n *   -> easier to read, more explicit\n *\n * WAY 2 (commented out): combine all wins with || (OR)\n *   -> shorter, but harder to read at a glance\n *   -> || means \"or\" \u2014 true if ANY condition is true\n *\n *   else if((userChoice == 1 && computerChoice == 3) ||\n *           (userChoice == 2 && computerChoice == 1) ||\n *           (userChoice == 3 && computerChoice == 2)) {\n *       printf(\"You WIN!\\n\");\n *   }\n */\n\nvoid checkWinner(int userChoice, int computerChoice) {\n\n    if(userChoice == computerChoice) {\n        printf(\"It's a TIE!\\n\");\n    }\n    else if(userChoice == 1 && computerChoice == 3) {\n        printf(\"You WIN! Rock beats Scissors\\n\");\n    }\n    else if(userChoice == 2 && computerChoice == 1) {\n        printf(\"You WIN! Paper beats Rock\\n\");\n    }\n    else if(userChoice == 3 && computerChoice == 2) {\n        printf(\"You WIN! Scissors beats Paper\\n\");\n    }\n    else {\n        printf(\"You LOSE!\\n\");\n    }\n}\n",
+          "compute": "const computerChoice = Math.floor(Math.random() * 3) + 1;\nconst names = {1: 'Rock', 2: 'Paper', 3: 'Scissors'};\nlet out = `You chose ${names[inputs.userChoice]}!\nComputer chose ${names[computerChoice]}!\n`;\nif (inputs.userChoice === computerChoice) {\n  out += \"It's a TIE!\";\n} else if ((inputs.userChoice === 1 && computerChoice === 3) ||\n           (inputs.userChoice === 2 && computerChoice === 1) ||\n           (inputs.userChoice === 3 && computerChoice === 2)) {\n  const beats = {1: 'Rock beats Scissors', 2: 'Paper beats Rock', 3: 'Scissors beats Paper'};\n  out += `You WIN! ${beats[inputs.userChoice]}`;\n} else {\n  out += \"You LOSE!\";\n}\nreturn out;"
         },
         {
           "id": "project11",
           "num": "11.",
           "title": "BANKING PROGRAM",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating banking program.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *          C PROGRAMMING - BANKING PROGRAM\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n */\n\n/* ═══════════════════════════════════════════════\n * FUNCTION PROTOTYPES\n * ═══════════════════════════════════════════════ */\n\nvoid  checkBalance(float balance);\nfloat deposit();\nfloat withdraw(float balance);\n\n/* ═══════════════════════════════════════════════\n * MAIN\n * ═══════════════════════════════════════════════ */\n\nint main() {\n\n    int   choice  = 0;\n    float balance = 0.0f;\n\n    printf(\"*** WELCOME TO THE BANK ***\");\n\n    do {\n        printf(\"\\nSelect an option:\\n\");\n        printf(\"\\n1. Check Balance\\n\");\n        printf(\"2. Deposit Money\\n\");\n        printf(\"3. Withdraw Money\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"\\nEnter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch(choice) {\n            case 1:\n                checkBalance(balance);\n                break;\n            case 2:\n                balance += deposit();        // balance = balance + deposit()\n                break;\n            case 3:\n                balance -= withdraw(balance); // balance = balance - withdraw()\n                break;\n            case 4:\n                printf(\"\\nThank you for using the bank!\\n\");\n                break;\n            default:\n                printf(\"\\nInvalid choice! Please select 1 - 4\\n\");\n        }\n    } while(choice != 4);\n\n    return 0;\n}\n\n/* ═══════════════════════════════════════════════\n * FUNCTION DEFINITIONS\n * ═══════════════════════════════════════════════ */\n\n// prints current balance — void, returns nothing\nvoid checkBalance(float balance) {\n    printf(\"\\nYour current balance is: $%.2f\\n\", balance);\n}\n\n// reads deposit amount, validates, returns amount to add\nfloat deposit() {\n    float amount = 0.0f;\n\n    printf(\"\\nEnter amount to deposit: $\");\n    scanf(\"%f\", &amount);\n\n    if(amount < 0) {\n        printf(\"Invalid amount!\\n\");\n        return 0.0f; // return 0 so balance doesn't change\n    }\n    else {\n        printf(\"Successfully deposited $%.2f\\n\", amount);\n    }\n\n    return amount;\n}\n\n// reads withdraw amount, validates, returns amount to subtract\nfloat withdraw(float balance) {\n    float amount = 0.0f;\n\n    printf(\"\\nEnter amount to withdraw: $\");\n    scanf(\"%f\", &amount);\n\n    if(amount < 0) {\n        printf(\"Invalid amount!\\n\");\n        return 0.0f; // return 0 so balance doesn't change\n    }\n    else if(amount > balance) {\n        printf(\"Insufficient funds! Your balance is $%.2f\\n\", balance);\n        return 0.0f; // return 0 so balance doesn't change\n    }                // ERROR WAS HERE — missing } before else\n    else {\n        printf(\"Successfully withdrew $%.2f\\n\", amount);\n        return amount;\n    }\n}\n"
+          "steps": [
+            {
+              "type": "loopWhile",
+              "prompt": "\nSelect an option:\n1. Check Balance\n2. Deposit Money (type: 2 amount)\n3. Withdraw Money (type: 3 amount)\n4. Exit\n\nEnter your choice: ",
+              "inputType": "text",
+              "feedback": "if (inputs.balance === undefined) inputs.balance = 0;\nconst parts = value.trim().split(/\\s+/);\nconst choice = parseInt(parts[0], 10);\nconst amount = parseFloat(parts[1]);\nif (choice === 1) return {message: `Your current balance is: $${inputs.balance.toFixed(2)}`};\nif (choice === 2) {\n  if (isNaN(amount) || amount < 0) return {message: 'Invalid amount!'};\n  inputs.balance += amount;\n  return {message: `Successfully deposited $${amount.toFixed(2)}`};\n}\nif (choice === 3) {\n  if (isNaN(amount) || amount < 0) return {message: 'Invalid amount!'};\n  if (amount > inputs.balance) return {message: `Insufficient funds! Your balance is $${inputs.balance.toFixed(2)}`};\n  inputs.balance -= amount;\n  return {message: `Successfully withdrew $${amount.toFixed(2)}`};\n}\nif (choice === 4) return {message: 'Thank you for using the bank!', stop: true};\nreturn {message: 'Invalid choice! Please select 1 - 4'};"
+            }
+          ],
+          "code": "#include <stdio.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *          C PROGRAMMING - BANKING PROGRAM\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n */\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * FUNCTION PROTOTYPES\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */\n\nvoid  checkBalance(float balance);\nfloat deposit();\nfloat withdraw(float balance);\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * MAIN\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */\n\nint main() {\n\n    int   choice  = 0;\n    float balance = 0.0f;\n\n    printf(\"*** WELCOME TO THE BANK ***\");\n\n    do {\n        printf(\"\\nSelect an option:\\n\");\n        printf(\"\\n1. Check Balance\\n\");\n        printf(\"2. Deposit Money\\n\");\n        printf(\"3. Withdraw Money\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"\\nEnter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch(choice) {\n            case 1:\n                checkBalance(balance);\n                break;\n            case 2:\n                balance += deposit();        // balance = balance + deposit()\n                break;\n            case 3:\n                balance -= withdraw(balance); // balance = balance - withdraw()\n                break;\n            case 4:\n                printf(\"\\nThank you for using the bank!\\n\");\n                break;\n            default:\n                printf(\"\\nInvalid choice! Please select 1 - 4\\n\");\n        }\n    } while(choice != 4);\n\n    return 0;\n}\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * FUNCTION DEFINITIONS\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 */\n\n// prints current balance \u2014 void, returns nothing\nvoid checkBalance(float balance) {\n    printf(\"\\nYour current balance is: $%.2f\\n\", balance);\n}\n\n// reads deposit amount, validates, returns amount to add\nfloat deposit() {\n    float amount = 0.0f;\n\n    printf(\"\\nEnter amount to deposit: $\");\n    scanf(\"%f\", &amount);\n\n    if(amount < 0) {\n        printf(\"Invalid amount!\\n\");\n        return 0.0f; // return 0 so balance doesn't change\n    }\n    else {\n        printf(\"Successfully deposited $%.2f\\n\", amount);\n    }\n\n    return amount;\n}\n\n// reads withdraw amount, validates, returns amount to subtract\nfloat withdraw(float balance) {\n    float amount = 0.0f;\n\n    printf(\"\\nEnter amount to withdraw: $\");\n    scanf(\"%f\", &amount);\n\n    if(amount < 0) {\n        printf(\"Invalid amount!\\n\");\n        return 0.0f; // return 0 so balance doesn't change\n    }\n    else if(amount > balance) {\n        printf(\"Insufficient funds! Your balance is $%.2f\\n\", balance);\n        return 0.0f; // return 0 so balance doesn't change\n    }                // ERROR WAS HERE \u2014 missing } before else\n    else {\n        printf(\"Successfully withdrew $%.2f\\n\", amount);\n        return amount;\n    }\n}\n",
+          "compute": "return `Final balance: $${inputs.balance.toFixed(2)}`;"
         },
         {
           "id": "project12",
           "num": "12.",
           "title": "QUIZ GAME",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating quiz game.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <ctype.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *           C PROGRAMMING - QUIZ GAME\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> 2D array of strings for questions and options\n *   -> char array for answer key\n *   -> toupper() from <ctype.h> to accept a or A\n *   -> sizeof to get question count automatically\n *   -> for loop to cycle through all questions\n *\n * WARNING: string literals placed next to each other\n * WITHOUT a comma get merged into ONE string by compiler\n *   WRONG: {\"Hello\" \"World\"}  -> \"HelloWorld\" (one string)\n *   RIGHT: {\"Hello\", \"World\"} -> two separate strings\n */\n\nint main() {\n\n    // each string is one question — MUST have commas between them\n    char questions[][100] = {\n        \"What is the largest planet in the solar system?\",\n        \"What is the hottest planet?\",\n        \"What planet has the most moons?\",\n        \"Is the Earth flat?\"\n    };\n\n    // each string holds all options for one question\n    char options[][100] = {\n        \"A. Jupiter\\nB. Saturn\\nC. Uranus\\nD. Neptune\",\n        \"A. Mercury\\nB. Venus\\nC. Earth\\nD. Mars\",\n        \"A. Earth\\nB. Mars\\nC. Jupiter\\nD. Saturn\",\n        \"A. Yes\\nB. No\\nC. Maybe\\nD. Sometimes\"\n    };\n\n    // correct answer for each question (index matched)\n    char answerKey[] = {'A', 'B', 'D', 'B'};\n\n    // sizeof trick to get count automatically\n    // if you add more questions later, no need to update this\n    int questionCount = sizeof(questions) / sizeof(questions[0]);\n\n    char guess = '\\0';\n    int  score = 0;\n\n    printf(\"*** QUIZ GAME ***\\n\");\n\n    for(int i = 0; i < questionCount; i++) {\n        printf(\"\\n%s\\n\",   questions[i]); // print question\n        printf(\"\\n%s\\n\",   options[i]);   // print options\n        printf(\"\\nEnter your choice: \");\n        scanf(\" %c\", &guess);             // space before %c clears '\\n'\n\n        guess = toupper(guess); // convert a->A, b->B so both work\n\n        if(guess == answerKey[i]) {\n            printf(\"CORRECT!\\n\");\n            score++;\n        }\n        else {\n            printf(\"Wrong! The answer was %c\\n\", answerKey[i]);\n        }\n    }\n\n    printf(\"\\nYour score: %d out of %d\\n\", score, questionCount);\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "What is the largest planet in the solar system?\n\nA. Jupiter\nB. Saturn\nC. Uranus\nD. Neptune\n\nEnter your choice: ",
+              "key": "g1",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "What is the hottest planet?\n\nA. Mercury\nB. Venus\nC. Earth\nD. Mars\n\nEnter your choice: ",
+              "key": "g2",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "What planet has the most moons?\n\nA. Earth\nB. Mars\nC. Jupiter\nD. Saturn\n\nEnter your choice: ",
+              "key": "g3",
+              "inputType": "text"
+            },
+            {
+              "type": "input",
+              "prompt": "Is the Earth flat?\n\nA. Yes\nB. No\nC. Maybe\nD. Sometimes\n\nEnter your choice: ",
+              "key": "g4",
+              "inputType": "text"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <ctype.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *           C PROGRAMMING - QUIZ GAME\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> 2D array of strings for questions and options\n *   -> char array for answer key\n *   -> toupper() from <ctype.h> to accept a or A\n *   -> sizeof to get question count automatically\n *   -> for loop to cycle through all questions\n *\n * WARNING: string literals placed next to each other\n * WITHOUT a comma get merged into ONE string by compiler\n *   WRONG: {\"Hello\" \"World\"}  -> \"HelloWorld\" (one string)\n *   RIGHT: {\"Hello\", \"World\"} -> two separate strings\n */\n\nint main() {\n\n    // each string is one question \u2014 MUST have commas between them\n    char questions[][100] = {\n        \"What is the largest planet in the solar system?\",\n        \"What is the hottest planet?\",\n        \"What planet has the most moons?\",\n        \"Is the Earth flat?\"\n    };\n\n    // each string holds all options for one question\n    char options[][100] = {\n        \"A. Jupiter\\nB. Saturn\\nC. Uranus\\nD. Neptune\",\n        \"A. Mercury\\nB. Venus\\nC. Earth\\nD. Mars\",\n        \"A. Earth\\nB. Mars\\nC. Jupiter\\nD. Saturn\",\n        \"A. Yes\\nB. No\\nC. Maybe\\nD. Sometimes\"\n    };\n\n    // correct answer for each question (index matched)\n    char answerKey[] = {'A', 'B', 'D', 'B'};\n\n    // sizeof trick to get count automatically\n    // if you add more questions later, no need to update this\n    int questionCount = sizeof(questions) / sizeof(questions[0]);\n\n    char guess = '\\0';\n    int  score = 0;\n\n    printf(\"*** QUIZ GAME ***\\n\");\n\n    for(int i = 0; i < questionCount; i++) {\n        printf(\"\\n%s\\n\",   questions[i]); // print question\n        printf(\"\\n%s\\n\",   options[i]);   // print options\n        printf(\"\\nEnter your choice: \");\n        scanf(\" %c\", &guess);             // space before %c clears '\\n'\n\n        guess = toupper(guess); // convert a->A, b->B so both work\n\n        if(guess == answerKey[i]) {\n            printf(\"CORRECT!\\n\");\n            score++;\n        }\n        else {\n            printf(\"Wrong! The answer was %c\\n\", answerKey[i]);\n        }\n    }\n\n    printf(\"\\nYour score: %d out of %d\\n\", score, questionCount);\n\n    return 0;\n}\n",
+          "compute": "const answers = ['A', 'B', 'D', 'B'];\nconst given = [inputs.g1, inputs.g2, inputs.g3, inputs.g4].map(v => (v || '').trim().toUpperCase());\nlet out = '';\nlet score = 0;\ngiven.forEach((g, i) => {\n  if (g === answers[i]) { out += `Q${i + 1}: CORRECT!\n`; score++; }\n  else { out += `Q${i + 1}: Wrong! The answer was ${answers[i]}\n`; }\n});\nout += `\nYour score: ${score} out of 4`;\nreturn out;"
         },
         {
           "id": "project13",
           "num": "13.",
           "title": "DIGITAL CLOCK",
-          "icon": "🧩",
+          "icon": "\ud83e\udde9",
           "desc": "A program demonstrating digital clock.",
           "difficulty": "Beginner",
           "diffColor": "#8DF749",
-          "steps": [],
-          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n#include <unistd.h>\n#include <stdbool.h>\n\n/*\n * ╔══════════════════════════════════════════════╗\n *          C PROGRAMMING - DIGITAL CLOCK\n *           Bro Code Tutorial | My Notes\n * ╚══════════════════════════════════════════════╝\n *\n * Concepts practiced:\n *   -> time_t and struct tm from <time.h>\n *   -> time() and localtime() functions\n *   -> \\r carriage return trick for in-place update\n *   -> sleep() from <unistd.h>\n *   -> infinite while loop with bool flag\n */\n\n/* ═══════════════════════════════════════════════\n * HOW TIME WORKS IN C\n * ═══════════════════════════════════════════════\n * time_t rawtime\n *   -> stores time as seconds since Jan 1 1970\n *   -> called \"Unix Epoch\" or \"Unix Timestamp\"\n *\n * time(&rawtime)\n *   -> fills rawtime with current time in seconds\n *\n * struct tm *pTime = localtime(&rawtime)\n *   -> converts raw seconds into readable struct\n *   -> struct tm has members:\n *        pTime->tm_hour  (0-23)\n *        pTime->tm_min   (0-59)\n *        pTime->tm_sec   (0-59)\n *\n * \\r = carriage return\n *   -> moves cursor back to START of current line\n *   -> next printf overwrites same line\n *   -> creates the \"ticking clock\" effect\n *   -> without \\r, each second prints on a new line\n *\n * fflush(stdout)\n *   -> forces output to print immediately\n *   -> without this, \\r may not show on some systems\n */\n\nint main() {\n\n    time_t    rawtime  = 0;    // seconds since Jan 1 1970 (Unix Epoch)\n    struct tm *pTime   = NULL; // pointer to broken-down time struct\n    bool      isRunning = true;\n\n    printf(\"DIGITAL CLOCK\\n\");\n\n    while(isRunning) {\n\n        time(&rawtime);               // get current time in seconds\n        pTime = localtime(&rawtime);  // convert to hours/min/sec\n\n        // \\r overwrites same line instead of new line each second\n        // %02d = always 2 digits, pad with 0 (e.g. 9 -> 09)\n        printf(\"\\r%02d:%02d:%02d\",\n               pTime->tm_hour,\n               pTime->tm_min,\n               pTime->tm_sec);\n\n        fflush(stdout); // force print immediately\n\n        sleep(1); // wait 1 second before next update\n    }\n\n    return 0;\n}\n"
+          "steps": [
+            {
+              "type": "input",
+              "prompt": "Press ENTER (type anything) to read the current time: ",
+              "key": "_start",
+              "inputType": "text"
+            }
+          ],
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n#include <unistd.h>\n#include <stdbool.h>\n\n/*\n * \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n *          C PROGRAMMING - DIGITAL CLOCK\n *           Bro Code Tutorial | My Notes\n * \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n *\n * Concepts practiced:\n *   -> time_t and struct tm from <time.h>\n *   -> time() and localtime() functions\n *   -> \\r carriage return trick for in-place update\n *   -> sleep() from <unistd.h>\n *   -> infinite while loop with bool flag\n */\n\n/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * HOW TIME WORKS IN C\n * \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n * time_t rawtime\n *   -> stores time as seconds since Jan 1 1970\n *   -> called \"Unix Epoch\" or \"Unix Timestamp\"\n *\n * time(&rawtime)\n *   -> fills rawtime with current time in seconds\n *\n * struct tm *pTime = localtime(&rawtime)\n *   -> converts raw seconds into readable struct\n *   -> struct tm has members:\n *        pTime->tm_hour  (0-23)\n *        pTime->tm_min   (0-59)\n *        pTime->tm_sec   (0-59)\n *\n * \\r = carriage return\n *   -> moves cursor back to START of current line\n *   -> next printf overwrites same line\n *   -> creates the \"ticking clock\" effect\n *   -> without \\r, each second prints on a new line\n *\n * fflush(stdout)\n *   -> forces output to print immediately\n *   -> without this, \\r may not show on some systems\n */\n\nint main() {\n\n    time_t    rawtime  = 0;    // seconds since Jan 1 1970 (Unix Epoch)\n    struct tm *pTime   = NULL; // pointer to broken-down time struct\n    bool      isRunning = true;\n\n    printf(\"DIGITAL CLOCK\\n\");\n\n    while(isRunning) {\n\n        time(&rawtime);               // get current time in seconds\n        pTime = localtime(&rawtime);  // convert to hours/min/sec\n\n        // \\r overwrites same line instead of new line each second\n        // %02d = always 2 digits, pad with 0 (e.g. 9 -> 09)\n        printf(\"\\r%02d:%02d:%02d\",\n               pTime->tm_hour,\n               pTime->tm_min,\n               pTime->tm_sec);\n\n        fflush(stdout); // force print immediately\n\n        sleep(1); // wait 1 second before next update\n    }\n\n    return 0;\n}\n",
+          "compute": "const now = new Date();\nconst pad = n => String(n).padStart(2, '0');\nconst time = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;\nreturn `${time}\n(In the real program this line overwrites itself every second using \\r - this simulator prints one snapshot.)`;"
         }
       ],
       "chapters": [
@@ -346,7 +547,7 @@
       "name": "Python",
       "icon": "icons/python.svg",
       "shape": "plain",
-      "sub": "Programs • Projects • Notes",
+      "sub": "Programs \u2022 Projects \u2022 Notes",
       "dashboardTitle": "PYTHON PORTFOLIO",
       "projects": [],
       "chapters": []
@@ -356,7 +557,7 @@
       "name": "Java",
       "icon": "icons/java.svg",
       "shape": "plain",
-      "sub": "Programs • Projects • Notes",
+      "sub": "Programs \u2022 Projects \u2022 Notes",
       "dashboardTitle": "JAVA PORTFOLIO",
       "projects": [],
       "chapters": []
