@@ -1,10 +1,7 @@
 #include <stdio.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *      C PROGRAMMING - WEIGHT CONVERTER PROGRAM
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> if/else if/else for menu selection

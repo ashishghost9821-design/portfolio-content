@@ -2,10 +2,7 @@
 #include <math.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *     C PROGRAMMING - COMPOUND INTEREST CALCULATOR
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> pow() from <math.h> (compile with -lm)

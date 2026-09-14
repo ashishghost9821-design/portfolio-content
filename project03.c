@@ -2,10 +2,7 @@
 #include <math.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *        C PROGRAMMING - SPHERE CALCULATOR
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> const keyword (value that cannot change)

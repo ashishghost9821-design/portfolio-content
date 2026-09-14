@@ -2,10 +2,7 @@
 #include <string.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *           C PROGRAMMING - MAD LIBS GAME
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> multiple fgets calls for string input

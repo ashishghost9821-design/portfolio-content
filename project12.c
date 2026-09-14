@@ -2,10 +2,7 @@
 #include <ctype.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *           C PROGRAMMING - QUIZ GAME
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> 2D array of strings for questions and options

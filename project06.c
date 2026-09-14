@@ -1,10 +1,7 @@
 #include <stdio.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *    C PROGRAMMING - TEMPERATURE CONVERTER PROGRAM
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> char input with scanf("%c")

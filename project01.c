@@ -2,10 +2,7 @@
 #include <string.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *        C PROGRAMMING - SHOPPING CART PROGRAM
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> fgets for string input

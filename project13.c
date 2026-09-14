@@ -5,10 +5,7 @@
 #include <stdbool.h>
 
 /*
- * ╔══════════════════════════════════════════════╗
  *          C PROGRAMMING - DIGITAL CLOCK
- *           Bro Code Tutorial | My Notes
- * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
  *   -> time_t and struct tm from <time.h>
