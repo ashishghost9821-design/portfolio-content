@@ -4,7 +4,6 @@
 /*
  * ╔══════════════════════════════════════════════╗
  *           C PROGRAMMING - MAD LIBS GAME
- *           Bro Code Tutorial | My Notes
  * ╚══════════════════════════════════════════════╝
  *
  * Concepts practiced:
